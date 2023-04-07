@@ -1,0 +1,68 @@
+<!-- Carmen Tucker - Chap 8 Assignment-->
+<!-- Fig. 8.6: index.html-->
+<!-- Compound interest calculation with a for loop. -->
+
+<!DOCTYPE html>
+<!-- Fig. 8.6: Interest.html -->
+<!-- Compound interest calculation with a for loop. -->
+<html>
+<head>
+<meta charset = "utf-8">
+  <title>Calculating Compound Interest</title>
+
+
+  <!-- Setting Table rows and columns-->
+  <style type = "text/css">
+    table         { width: 300px;
+                    border-collapse:collapse;
+                    background-color: lavender;
+                    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                    font-style: normal;
+                    position: relative;
+               }
+    table, td, th { border: 3px solid black;
+                    padding: 10px; }
+    th            { font-family: 'calibri';
+                    font-style: normal;
+                    font-weight: bold;
+                    text-align: left;
+                    color: white;
+                    background-color: teal; }
+    tr.oddrow     { background-color: white; }
+  </style>
+
+  <!-- Defining rows and columns in tables-->
+    <script>
+      var amount; // current amount of money
+      var principal = 1000.00; // principal amount
+      document.writeln( "<caption>Calculating Compound Interest</caption>" );
+
+      // for loop to calculate different interest rates in separate tables
+      for ( var rate = 0.08; rate <= 0.10; rate += 0.01)
+      {
+          document.writeln( "<br><table>" );
+          document.writeln( "<thead><tr><th>Rate</th>" ); // rate column heading
+          document.writeln( "<th>Year</th>" ); // year column heading
+          document.writeln( "<th>Amount on deposit</th>" ); // amount column heading
+          document.writeln( "</tr></thead><tbody>" );
+
+      // setting for loop to calculate interest for up to 10 years
+    
+            for ( var year = 1; year <= 10; ++year )
+        {
+            amount = principal * Math.pow( 1.0 + rate, year );
+
+              if ( year % 2 !== 0 )
+                document.writeln( "<tr class='oddrow'><td>" + rate.toFixed(2) + "</td><td>" + year +
+                "</td><td>" + amount.toFixed(2) + "</td></tr>" );
+              else
+                document.writeln( "<tr><td>" + rate.toFixed(2) + "</td><td>" + year +
+                "</td><td>" + amount.toFixed(2) + "</td></tr>" );
+        } //end for
+
+    document.writeln( "</tbody></table>" );
+      }
+    </script>
+</head>
+<body></body>
+</html>
